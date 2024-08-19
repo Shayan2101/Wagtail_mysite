@@ -1,0 +1,86 @@
+@media (max-width: 575px){
+    .ae-phone{
+        display: none !important;
+    }
+    .ae-background1{
+    height: 600px !important;
+    }
+    .ae-img-text-container{
+        top: 150px !important;
+        margin-right: 0 !important;
+    }
+    .ae-logo{
+        margin-right: 10px !important;
+    }
+    .ae-home-img1 img{
+        width: 340px !important;
+    }
+    .ae-modir img{
+        width: 360px;
+    }
+    .ae-estekhdam img{
+        width: 350px;
+    }
+}
+@media (max-width: 767px){
+    .ae-welcome-text {
+        padding: 0px 10px !important;
+    }
+    .ae-background1{
+        width: 100% !important;
+    }
+    .home-img1{
+        order: 0;
+    }
+    .ae-welcoming{
+        order: 1;
+    }
+}
+@media (max-width: 991px){
+    .ae-social-icons{
+        display: none;
+    }
+    .ae-maziatha div{
+        margin-bottom: 20px;
+    }
+    .ae-estekhdam-left-box{
+        align-items: center;
+    }
+}
+@media (max-width: 1200px){
+    .ae-menu-icon{
+        display: block !important;
+    }
+}
+
+
+@media (min-width: 576px){
+    .ae-gallery img{
+        height: 150px !important;
+    }
+
+}
+@media (min-width: 768px){
+    .ae-gallery img{
+        height: 220px !important;
+    }
+}
+@media (min-width: 992px){
+    .ae-maziatha div{
+        margin-bottom: 50px;
+    }
+    .ae-gallery img{
+        height: 300 !important;
+    }
+    .ae-estekhdam img{
+        width: 400px;
+    }
+}
+@media (min-width: 1200px){
+    .ae-navtext{
+        display: block !important;
+    }
+    .ae-estekhdam img{
+        width: 500px;
+    }
+}

@@ -1,0 +1,27 @@
+services:
+  web:
+    # build:
+    #   context: .
+    #   dockerfile: ./compose/local/web/Dockerfile
+    image: wagtail_blog_web
+    command: /start
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env/.dev-sample
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=wagtail_db
+      - POSTGRES_USER=Shayan
+      - POSTGRES_PASSWORD=1694
+
+volumes:
+  postgres_data:

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    environment:
+      POSTGRES_DB: wagtail_db
+      POSTGRES_USER: Shayan
+      POSTGRES_PASSWORD: 1694
+    restart: unless-stopped
+    image: postgres
+    expose:
+      - '5432'
+
+  app:
+    environment:
+      DJANGO_SECRET_KEY: django-insecure-(yop=(4no%mu1s$*%d^g*ok-ne=w!g-n0ky8)3ot)!ab*h72jv
+      DATABASE_URL: postgres://Shayan:1694@db/wagtail_db
+      DJANGO_SETTINGS_MODULE: mysite.settings
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile
+    image: my-wagtail-image
+    volumes:
+      - ./mysite:/code/mysite
+    links:
+      - db:db
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db

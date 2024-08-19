@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+<div class="cards-container">
+    {% for post in blogpages %}
+        {% with post=post.specific %}
+        <div class="card">
+            {% if post.main_image %}
+                <div class="card-image">
+                    {% image post.main_image fill-160x100 %}
+                </div>
+            {% endif %}
+            <div class="card-content">
+                <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                <p>{{ post.intro }}</p>
+                {{ post.body|richtext }}
+            </div>
+        </div>
+        {% endwith %}
+    {% endfor %}
+</div>
+{% endblock %}

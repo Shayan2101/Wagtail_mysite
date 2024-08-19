@@ -1,0 +1,38 @@
+services:
+  wagtail:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: my-wagtail-image
+    container_name: wagtail
+    volumes:
+      - ./website/:/usr/src/app/:consistent
+      - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh
+    ports:
+      - 8000:8000
+    command : wait-for-it.sh db:5432 -- python manage.py runserver 0.0.0.0:8000
+    # env_file:
+    #   - ./.env.dev
+    depends_on:
+      - db
+    networks:
+      - website
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    container_name: wagtail-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    # env_file:
+    #   - ./.env.dev
+    networks:
+      - website
+
+networks:
+  website:
+
+volumes:
+  postgres_data:
